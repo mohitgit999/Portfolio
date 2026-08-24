@@ -68,8 +68,8 @@ const Background = () => {
         </div>
       ))}
 
-      {/* Extremely subtle, slow-moving lighting accents */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none transition-colors duration-500">
+      {/* Extremely subtle, slow-moving lighting accents (Hidden on mobile for performance) */}
+      <div className="hidden md:block absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none transition-colors duration-500">
         <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] bg-[#cbd5e1] dark:bg-[#1e293b] rounded-full blur-[120px] opacity-70 animate-slow-drift"></div>
         <div className="absolute top-[40%] -right-[10%] w-[60%] h-[60%] bg-[#cbd5e1] dark:bg-[#1e293b] rounded-full blur-[150px] opacity-70 animate-slow-drift-reverse"></div>
       </div>

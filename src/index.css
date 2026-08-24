@@ -95,6 +95,14 @@ section {
   animation: floatParticle 25s linear infinite;
 }
 
+/* Disable heavy animations on mobile for performance */
+@media (max-width: 768px) {
+  .animate-grid-pan,
+  .animate-float-particle {
+    animation: none !important;
+  }
+}
+
 /* Scrollbar customization */
 ::-webkit-scrollbar {
   width: 8px;
