@@ -37,9 +37,9 @@ const Skills = () => {
           </div>
         </Reveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 auto-rows-fr">
           {skillsData.map((category, index) => (
-            <Reveal key={index} delay={index * 0.1}>
+            <Reveal key={index} delay={index * 0.1} className="h-full">
               <GlassCard className="h-full">
                 <div className="flex items-center gap-3 mb-6">
                   {category.icon}

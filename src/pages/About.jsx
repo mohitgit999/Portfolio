@@ -46,8 +46,8 @@ const About = () => {
           </div>
 
           {/* Awards & Certifications */}
-          <div className="flex flex-col gap-8">
-            <Reveal delay={0.4}>
+          <div className="flex flex-col gap-8 h-full">
+            <Reveal delay={0.4} className="h-full">
               <GlassCard className="h-full">
                 <div className="flex items-center gap-3 mb-8">
                   <Trophy className="text-gray-900 dark:text-gray-100 w-6 h-6 transition-colors duration-500" />

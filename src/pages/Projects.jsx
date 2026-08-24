@@ -52,7 +52,7 @@ const Projects = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projectsData.map((project, index) => (
-            <Reveal key={index} delay={index * 0.1}>
+            <Reveal key={index} delay={index * 0.1} className="h-full">
               <GlassCard hover={true} className="flex flex-col relative overflow-hidden group h-full">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-gray-200/50 dark:bg-slate-700/30 rounded-full blur-2xl -mr-16 -mt-16 transition-transform group-hover:scale-150 duration-500"></div>
 
