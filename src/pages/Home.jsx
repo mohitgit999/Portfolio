@@ -3,6 +3,7 @@ import { FileDown, Mail } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import GlassCard from '../components/GlassCard';
 import Reveal from '../components/Reveal';
+import profileImg from '../assets/profile.jpg';
 
 const Home = () => {
   return (
@@ -17,7 +18,7 @@ const Home = () => {
               {/* Profile Image - Clean geometric frame */}
               <div className="w-48 h-48 md:w-64 md:h-64 rounded-full border border-gray-200 dark:border-slate-600 bg-white/40 dark:bg-slate-800/40 p-2 flex-shrink-0 shadow-sm relative group overflow-hidden transition-colors duration-500">
                 <div className="w-full h-full rounded-full bg-gray-100 dark:bg-slate-700 overflow-hidden flex items-center justify-center relative transition-colors duration-500">
-                  <span className="text-gray-400 dark:text-gray-500 text-sm z-10 font-medium tracking-wider">Place photo here</span>
+                  <img src={profileImg} alt="Mohit Kumar" className="w-full h-full object-cover z-10 relative" />
                   {/* Subtle shine effect on hover */}
                   <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 dark:via-white/5 to-transparent -translate-x-full group-hover:animate-shine z-20"></div>
                 </div>
