@@ -49,20 +49,19 @@ const Home = () => {
                 <h2 className="text-xl md:text-2xl font-medium text-gray-600 dark:text-gray-300 mb-6 tracking-wide transition-colors duration-500 h-8">
                   <TypeAnimation
                     sequence={[
+                      'Full Stack Developer',
+                      2000,
+                      'MERN Stack Developer',
+                      2000,
                       'Software Developer',
                       2000,
                       'React Developer',
-                      2000,
-                      'Tailwind CSS Enthusiast',
-                      2000,
-                      'Java Developer',
-                      2000,
-                      'MongoDB Specialist',
                       2000,
                     ]}
                     wrapper="span"
                     speed={50}
                     repeat={Infinity}
+                    className="inline-block"
                   />
                 </h2>
                 
