@@ -4,6 +4,7 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
 import GlassCard from '../components/GlassCard';
+import TiltCard from '../components/TiltCard';
 import Reveal from '../components/Reveal';
 import profileImg from '../assets/profile.jpg';
 
@@ -19,13 +20,15 @@ const Home = () => {
             animate={{ y: [0, -10, 0] }}
             transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
             className="w-full"
+            style={{ perspective: 1000 }}
           >
-            <GlassCard className="relative overflow-hidden">
-              {/* Subtle glow effect behind card content with parallax */}
-              <motion.div 
-                style={{ y: y1 }}
-                className="absolute top-0 right-0 w-96 h-96 bg-gray-200/50 dark:bg-slate-700/30 rounded-full blur-3xl -z-10 translate-x-1/3 -translate-y-1/3 transition-colors duration-500"
-              ></motion.div>
+            <TiltCard>
+              <GlassCard className="relative overflow-hidden">
+                {/* Subtle glow effect behind card content with parallax */}
+                <motion.div 
+                  style={{ y: y1 }}
+                  className="absolute top-0 right-0 w-96 h-96 bg-gray-200/50 dark:bg-slate-700/30 rounded-full blur-3xl -z-10 translate-x-1/3 -translate-y-1/3 transition-colors duration-500"
+                ></motion.div>
             
             <div className="flex flex-col md:flex-row gap-12 items-center md:items-start p-4 md:p-8">
               {/* Profile Image - Clean geometric frame */}
@@ -74,7 +77,9 @@ const Home = () => {
                 </p>
                 
                 <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
-                  <a 
+                  <motion.a 
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                     href="#contact" 
                     onClick={(e) => {
                       e.preventDefault();
@@ -84,29 +89,55 @@ const Home = () => {
                         window.history.pushState(null, '', '#contact');
                       }
                     }}
-                    className="px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-semibold rounded-full hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors shadow-sm"
+                    className="px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-semibold rounded-full hover:bg-gray-800 dark:hover:bg-gray-100 transition-colors shadow-sm cursor-pointer"
                   >
                     Contact Me
-                  </a>
-                  <a href="/resume.pdf" download="Mohit_Kumar_Resume.pdf" className="px-6 py-3 bg-white dark:bg-slate-800 text-gray-900 dark:text-white font-semibold rounded-full border border-gray-200 dark:border-slate-600 hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors flex items-center gap-2 shadow-sm">
+                  </motion.a>
+                  <motion.a 
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    href="/resume.pdf" 
+                    download="Mohit_Kumar_Resume.pdf" 
+                    className="px-6 py-3 bg-white dark:bg-slate-800 text-gray-900 dark:text-white font-semibold rounded-full border border-gray-200 dark:border-slate-600 hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors flex items-center gap-2 shadow-sm cursor-pointer"
+                  >
                     <FileDown className="w-4 h-4" /> Resume
-                  </a>
+                  </motion.a>
                   
                   <div className="flex gap-3 md:ml-2 border-l-0 md:border-l border-gray-200 dark:border-slate-700 pl-0 md:pl-4 mt-2 md:mt-0 transition-colors duration-500">
-                    <a href="https://github.com/mohitgit999" target="_blank" rel="noopener noreferrer" className="p-3 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-600 rounded-full text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:border-gray-300 dark:hover:border-slate-500 transition-colors shadow-sm">
+                    <motion.a 
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      whileTap={{ scale: 0.9 }}
+                      href="https://github.com/mohitgit999" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="p-3 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-600 rounded-full text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:border-gray-300 dark:hover:border-slate-500 transition-colors shadow-sm"
+                    >
                       <FaGithub className="w-5 h-5" />
-                    </a>
-                    <a href="https://linkedin.com/in/mohit-kumar-a14836313" target="_blank" rel="noopener noreferrer" className="p-3 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-600 rounded-full text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:border-gray-300 dark:hover:border-slate-500 transition-colors shadow-sm">
+                    </motion.a>
+                    <motion.a 
+                      whileHover={{ scale: 1.1, rotate: -5 }}
+                      whileTap={{ scale: 0.9 }}
+                      href="https://linkedin.com/in/mohit-kumar-a14836313" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="p-3 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-600 rounded-full text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:border-gray-300 dark:hover:border-slate-500 transition-colors shadow-sm"
+                    >
                       <FaLinkedin className="w-5 h-5" />
-                    </a>
-                    <a href="mailto:your.email@example.com" className="p-3 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-600 rounded-full text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:border-gray-300 dark:hover:border-slate-500 transition-colors shadow-sm">
+                    </motion.a>
+                    <motion.a 
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      whileTap={{ scale: 0.9 }}
+                      href="mailto:your.email@example.com" 
+                      className="p-3 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-600 rounded-full text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:border-gray-300 dark:hover:border-slate-500 transition-colors shadow-sm"
+                    >
                       <Mail className="w-5 h-5" />
-                    </a>
+                    </motion.a>
                   </div>
                 </div>
               </div>
             </div>
-            </GlassCard>
+              </GlassCard>
+            </TiltCard>
           </motion.div>
         </Reveal>
       </div>

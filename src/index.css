@@ -32,14 +32,16 @@ section {
 
 /* Distinct Solid Grey Cards to separate from White Background */
 .glass {
-  background: #f1f5f9; /* Slate 100 - clean, distinct solid grey */
-  border: 1px solid #e2e8f0; /* Slate 200 border */
+  background: rgba(241, 245, 249, 0.85); /* Slate 100 with opacity */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.8); /* Slate 200 border */
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
 }
 
 .dark .glass {
-  background: #1e293b; /* Slate 800 */
-  border: 1px solid #334155; /* Slate 700 */
+  background: rgba(30, 41, 59, 0.85); /* Slate 800 with opacity */
+  border: 1px solid rgba(51, 65, 85, 0.8); /* Slate 700 */
 }
 
 .glass-hover:hover {
