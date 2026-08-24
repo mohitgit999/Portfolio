@@ -62,7 +62,7 @@ const Home = () => {
                     <FileDown className="w-4 h-4" /> Resume
                   </a>
                   
-                  <div className="flex gap-3 ml-2 border-l border-gray-200 dark:border-slate-700 pl-4 transition-colors duration-500">
+                  <div className="flex gap-3 md:ml-2 border-l-0 md:border-l border-gray-200 dark:border-slate-700 pl-0 md:pl-4 mt-2 md:mt-0 transition-colors duration-500">
                     <a href="https://github.com/mohitgit999" target="_blank" rel="noopener noreferrer" className="p-3 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-600 rounded-full text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:border-gray-300 dark:hover:border-slate-500 transition-colors shadow-sm">
                       <FaGithub className="w-5 h-5" />
                     </a>

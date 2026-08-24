@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Terminal } from 'lucide-react';
+import { Terminal, Menu, X } from 'lucide-react';
 
 const NavBar = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [active, setActive] = useState('home');
 
   useEffect(() => {
@@ -58,14 +59,37 @@ const NavBar = () => {
           })}
         </div>
         
-        <a 
-          href="#contact" 
-          onClick={(e) => scrollToSection(e, 'contact')}
-          className="md:hidden text-xs font-bold uppercase tracking-wider text-gray-900 dark:text-white"
+        <button 
+          className="md:hidden text-gray-900 dark:text-white focus:outline-none"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
-          Contact
-        </a>
+          {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden absolute top-full left-0 mt-4 w-full bg-white/90 dark:bg-slate-900/90 rounded-2xl p-4 shadow-lg backdrop-blur-md border border-gray-200 dark:border-slate-800 flex flex-col gap-4">
+          {navLinks.map((link) => {
+            const id = link.toLowerCase();
+            return (
+              <a
+                key={id}
+                href={`#${id}`}
+                className={`text-sm font-semibold tracking-widest uppercase transition-colors px-2 py-2 rounded-md ${
+                  active === id ? 'bg-gray-100 dark:bg-slate-800 text-gray-900 dark:text-white' : 'text-gray-600 dark:text-gray-400'
+                }`}
+                onClick={(e) => {
+                  scrollToSection(e, id);
+                  setIsMobileMenuOpen(false);
+                }}
+              >
+                {link}
+              </a>
+            );
+          })}
+        </div>
+      )}
     </nav>
   );
 };
