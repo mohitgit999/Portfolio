@@ -8,6 +8,7 @@ import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Preloader from './components/Preloader';
 import DarkModeToggle from './components/DarkModeToggle';
+import CustomCursor from './components/CustomCursor';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -15,6 +16,7 @@ function App() {
   return (
     <>
       <Preloader onComplete={() => setLoading(false)} />
+      <CustomCursor />
       <DarkModeToggle />
       
       {!loading && (
