@@ -64,11 +64,11 @@ const Contact = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="flex flex-col gap-1">
                       <label htmlFor="name" className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider ml-1 font-medium transition-colors duration-500">Name</label>
-                      <input required type="text" id="name" className="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-gray-400 dark:focus:border-slate-500 transition-colors shadow-sm" placeholder="John Doe" />
+                      <input required type="text" id="name" className="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-gray-400 dark:focus:border-slate-500 transition-colors shadow-sm" placeholder="Hugh Jackman" />
                     </div>
                     <div className="flex flex-col gap-1">
                       <label htmlFor="email" className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider ml-1 font-medium transition-colors duration-500">Email</label>
-                      <input required type="email" id="email" className="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-gray-400 dark:focus:border-slate-500 transition-colors shadow-sm" placeholder="john@example.com" />
+                      <input required type="email" id="email" className="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-xl px-4 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-gray-400 dark:focus:border-slate-500 transition-colors shadow-sm" placeholder="hugh@example.com" />
                     </div>
                   </div>
                   <div className="flex flex-col gap-1 flex-1">
