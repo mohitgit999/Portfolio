@@ -1,13 +1,22 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { motion, useMotionValue, useSpring, useMotionTemplate } from 'framer-motion';
 
 const CustomCursor = () => {
-  const [position, setPosition] = useState({ x: -100, y: -100 });
   const [isHovering, setIsHovering] = useState(false);
   const [isHidden, setIsHidden] = useState(false);
   const [isIdle, setIsIdle] = useState(false);
   const [isTouchDevice, setIsTouchDevice] = useState(false);
   
   const idleTimeoutRef = useRef(null);
+
+  const cursorX = useMotionValue(-100);
+  const cursorY = useMotionValue(-100);
+  
+  const springConfig = { damping: 25, stiffness: 400, mass: 0.5 };
+  const smoothX = useSpring(cursorX, springConfig);
+  const smoothY = useSpring(cursorY, springConfig);
+  
+  const transform = useMotionTemplate`translate(${smoothX}px, ${smoothY}px) translate(-50%, -50%)`;
 
   useEffect(() => {
     // Check for touch device on mount
@@ -22,7 +31,9 @@ const CustomCursor = () => {
     setIsTouchDevice(checkTouch());
 
     const updatePosition = (e) => {
-      setPosition({ x: e.clientX, y: e.clientY });
+      cursorX.set(e.clientX);
+      cursorY.set(e.clientY);
+      
       setIsHidden(false);
       setIsIdle(false);
       
@@ -74,7 +85,7 @@ const CustomCursor = () => {
       window.removeEventListener('mouseenter', handleMouseEnter);
       window.removeEventListener('mouseover', handleMouseOver);
     };
-  }, [isTouchDevice]);
+  }, [isTouchDevice, cursorX, cursorY]);
 
   if (isTouchDevice) {
     return null; // Don't show on touch devices
@@ -83,16 +94,22 @@ const CustomCursor = () => {
   const shouldHide = isHidden || isIdle;
 
   return (
-    <div
-      className={`fixed top-0 left-0 pointer-events-none z-[9999] rounded-full mix-blend-difference bg-white transition-all duration-300 ease-out flex items-center justify-center ${shouldHide ? 'opacity-0 scale-0' : 'opacity-100 scale-100'}`}
-      style={{
-        transform: `translate(${position.x}px, ${position.y}px) translate(-50%, -50%)`,
-        width: isHovering ? '40px' : '20px',
-        height: isHovering ? '40px' : '20px',
+    <motion.div
+      className="fixed top-0 left-0 pointer-events-none z-[9999] rounded-full mix-blend-difference bg-white flex items-center justify-center"
+      style={{ transform }}
+      animate={{
+        width: isHovering ? 24 : 12,
+        height: isHovering ? 24 : 12,
+        opacity: shouldHide ? 0 : 1,
       }}
+      transition={{ type: "tween", duration: 0.3, ease: "easeOut" }}
     >
-      <div className={`w-1 h-1 bg-white rounded-full transition-opacity duration-300 ${isHovering ? 'opacity-0' : 'opacity-100'}`} />
-    </div>
+      <motion.div 
+        className="w-1 h-1 bg-white rounded-full"
+        animate={{ opacity: isHovering ? 0 : 1 }}
+        transition={{ duration: 0.3 }}
+      />
+    </motion.div>
   );
 };
 
