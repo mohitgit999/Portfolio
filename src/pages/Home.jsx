@@ -1,18 +1,31 @@
 import React from 'react';
 import { FileDown, Mail } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { TypeAnimation } from 'react-type-animation';
 import GlassCard from '../components/GlassCard';
 import Reveal from '../components/Reveal';
 import profileImg from '../assets/profile.jpg';
 
 const Home = () => {
+  const { scrollY } = useScroll();
+  const y1 = useTransform(scrollY, [0, 500], [0, 80]); // Subtle parallax on scroll
+
   return (
     <section id="home" className="min-h-screen flex items-center justify-center pt-20 px-4">
       <div className="max-w-5xl w-full mx-auto">
         <Reveal>
-          <GlassCard className="relative overflow-hidden">
-            {/* Subtle glow effect behind card content */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-gray-200/50 dark:bg-slate-700/30 rounded-full blur-3xl -z-10 translate-x-1/3 -translate-y-1/3 transition-colors duration-500"></div>
+          <motion.div
+            animate={{ y: [0, -10, 0] }}
+            transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+            className="w-full"
+          >
+            <GlassCard className="relative overflow-hidden">
+              {/* Subtle glow effect behind card content with parallax */}
+              <motion.div 
+                style={{ y: y1 }}
+                className="absolute top-0 right-0 w-96 h-96 bg-gray-200/50 dark:bg-slate-700/30 rounded-full blur-3xl -z-10 translate-x-1/3 -translate-y-1/3 transition-colors duration-500"
+              ></motion.div>
             
             <div className="flex flex-col md:flex-row gap-12 items-center md:items-start p-4 md:p-8">
               {/* Profile Image - Clean geometric frame */}
@@ -35,8 +48,24 @@ const Home = () => {
                   Mohit <span className="text-gray-400 dark:text-gray-500 font-light">Kumar</span>
                 </h1>
                 
-                <h2 className="text-xl md:text-2xl font-medium text-gray-600 dark:text-gray-300 mb-6 tracking-wide transition-colors duration-500">
-                  Software Developer
+                <h2 className="text-xl md:text-2xl font-medium text-gray-600 dark:text-gray-300 mb-6 tracking-wide transition-colors duration-500 h-8">
+                  <TypeAnimation
+                    sequence={[
+                      'Software Developer',
+                      2000,
+                      'React Developer',
+                      2000,
+                      'Tailwind CSS Enthusiast',
+                      2000,
+                      'Java Developer',
+                      2000,
+                      'MongoDB Specialist',
+                      2000,
+                    ]}
+                    wrapper="span"
+                    speed={50}
+                    repeat={Infinity}
+                  />
                 </h2>
                 
                 <p className="text-gray-500 dark:text-gray-400 max-w-lg mb-8 leading-relaxed font-medium transition-colors duration-500">
@@ -77,7 +106,8 @@ const Home = () => {
                 </div>
               </div>
             </div>
-          </GlassCard>
+            </GlassCard>
+          </motion.div>
         </Reveal>
       </div>
     </section>
