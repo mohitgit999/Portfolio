@@ -63,7 +63,7 @@ const About = () => {
                     <p className="text-sm text-gray-600 dark:text-gray-400 mt-1 transition-colors duration-500">Deep dive into Object-Oriented Programming, data structures, and algorithms using Java.</p>
                   </li>
                   <li className="relative pl-6 before:absolute before:left-0 before:top-2 before:w-1.5 before:h-1.5 before:bg-gray-400 dark:before:bg-gray-500 before:rounded-full">
-                    <h4 className="text-gray-900 dark:text-white font-medium transition-colors duration-500">Introduction to Artificial Intelligence & Machine Learning</h4>
+                    <h4 className="text-gray-900 dark:text-white font-medium transition-colors duration-500">Artificial Intelligence & Machine Learning</h4>
                     <p className="text-sm text-gray-600 dark:text-gray-400 mt-1 transition-colors duration-500">Foundational knowledge in AI concepts, data processing, and integrating AI models into applications.</p>
                   </li>
                 </ul>

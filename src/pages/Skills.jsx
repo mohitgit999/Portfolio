@@ -6,22 +6,22 @@ import { Layers, Database, Code, Cpu } from 'lucide-react';
 const skillsData = [
   {
     category: "Frontend Development",
-    icon: <Layers className="w-6 h-6 text-gray-900 mb-4" />,
+    icon: <Layers className="w-6 h-6 text-gray-900" />,
     skills: ["React.js", "JavaScript (ES6+)", "HTML5", "CSS3", "Tailwind CSS"]
   },
   {
     category: "Backend & Database",
-    icon: <Database className="w-6 h-6 text-gray-900 mb-4" />,
+    icon: <Database className="w-6 h-6 text-gray-900" />,
     skills: ["Node.js", "Express.js", "MongoDB", "PostgreSQL", "REST APIs"]
   },
   {
     category: "Languages",
-    icon: <Code className="w-6 h-6 text-gray-900 mb-4" />,
+    icon: <Code className="w-6 h-6 text-gray-900" />,
     skills: ["Java", "Python", "JavaScript", "SQL"]
   },
   {
     category: "Tools & Others",
-    icon: <Cpu className="w-6 h-6 text-gray-900 mb-4" />,
+    icon: <Cpu className="w-6 h-6 text-gray-900" />,
     skills: ["Git", "GitHub", "Postman", "OpenAI API", "Machine Learning"]
   }
 ];

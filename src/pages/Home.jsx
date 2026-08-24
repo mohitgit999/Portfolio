@@ -4,7 +4,6 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
 import GlassCard from '../components/GlassCard';
-import TiltCard from '../components/TiltCard';
 import Reveal from '../components/Reveal';
 import profileImg from '../assets/profile.jpg';
 
@@ -17,20 +16,16 @@ const Home = () => {
       <div className="max-w-5xl w-full mx-auto">
         <Reveal>
           <motion.div
-            animate={{ y: [0, -10, 0] }}
-            transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
             className="w-full"
-            style={{ perspective: 1000 }}
           >
-            <TiltCard>
-              <GlassCard className="relative overflow-hidden">
-                {/* Subtle glow effect behind card content with parallax */}
+            <GlassCard hover={true} className="relative overflow-hidden w-full h-full">
+              {/* Subtle glow effect behind card content with parallax */}
                 <motion.div 
                   style={{ y: y1 }}
                   className="absolute top-0 right-0 w-96 h-96 bg-gray-200/50 dark:bg-slate-700/30 rounded-full blur-3xl -z-10 translate-x-1/3 -translate-y-1/3 transition-colors duration-500"
                 ></motion.div>
             
-            <div className="flex flex-col md:flex-row gap-12 items-center md:items-start p-4 md:p-8">
+            <div className="flex flex-col md:flex-row gap-12 items-center p-4 md:p-8">
               {/* Profile Image - Clean geometric frame */}
               <div className="w-48 h-48 md:w-64 md:h-64 rounded-full border border-gray-200 dark:border-slate-600 bg-white/40 dark:bg-slate-800/40 p-2 flex-shrink-0 shadow-sm relative group overflow-hidden transition-colors duration-500">
                 <div className="w-full h-full rounded-full bg-gray-100 dark:bg-slate-700 overflow-hidden flex items-center justify-center relative transition-colors duration-500">
@@ -41,7 +36,7 @@ const Home = () => {
               </div>
 
               {/* Text Content */}
-              <div className="flex flex-col items-center md:items-start text-center md:text-left pt-4">
+              <div className="flex flex-col items-center md:items-start text-center md:text-left pt-2">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/60 dark:bg-slate-800/60 border border-gray-200 dark:border-slate-700 shadow-sm mb-6 transition-colors duration-500">
                   <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
                   <span className="text-xs font-semibold text-gray-600 dark:text-gray-300 tracking-wide uppercase">Available for work</span>
@@ -102,7 +97,6 @@ const Home = () => {
                   >
                     <FileDown className="w-4 h-4" /> Resume
                   </motion.a>
-                  
                   <div className="flex gap-3 md:ml-2 border-l-0 md:border-l border-gray-200 dark:border-slate-700 pl-0 md:pl-4 mt-2 md:mt-0 transition-colors duration-500">
                     <motion.a 
                       whileHover={{ scale: 1.1, rotate: 5 }}
@@ -127,7 +121,7 @@ const Home = () => {
                     <motion.a 
                       whileHover={{ scale: 1.1, rotate: 5 }}
                       whileTap={{ scale: 0.9 }}
-                      href="mailto:your.email@example.com" 
+                      href="mailto:mohit96038@gmail.com" 
                       className="p-3 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-600 rounded-full text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:border-gray-300 dark:hover:border-slate-500 transition-colors shadow-sm"
                     >
                       <Mail className="w-5 h-5" />
@@ -137,7 +131,6 @@ const Home = () => {
               </div>
             </div>
               </GlassCard>
-            </TiltCard>
           </motion.div>
         </Reveal>
       </div>
